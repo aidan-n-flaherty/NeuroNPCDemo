@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://14sqlws4ymal"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_jpi8b"]
+[ext_resource type="PackedScene" uid="uid://ecexpearvdmp" path="res://scenes/Player.tscn" id="2_kcmxe"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_jpi8b")
+
+[node name="Player" parent="." instance=ExtResource("2_kcmxe")]
