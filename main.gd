@@ -9,10 +9,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("move_right"):
-		$Sprite2D.position.x += 1
+		$Sprite2D.position.x += 10
 	if Input.is_action_pressed("move_left"):
-		$Sprite2D.position.x -= 1
+		$Sprite2D.position.x -= 10
 	if Input.is_action_pressed("move_down"):
-		$Sprite2D.position.y += 1
+		$Sprite2D.position.y += 10
 	if Input.is_action_pressed("move_up"):
-		$Sprite2D.position.y -= 1
+		$Sprite2D.position.y -= 10
