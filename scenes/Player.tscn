@@ -6,3 +6,5 @@
 [node name="Player" type="Sprite2D"]
 texture = ExtResource("1_hfb2o")
 script = ExtResource("1_aq220")
+
+[node name="Camera2D" type="Camera2D" parent="."]
