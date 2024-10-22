@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://14sqlws4ymal"]
+[gd_scene load_steps=10 format=4 uid="uid://14sqlws4ymal"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jpi8b"]
 [ext_resource type="PackedScene" uid="uid://ecexpearvdmp" path="res://scenes/Player.tscn" id="2_kcmxe"]
 [ext_resource type="Texture2D" uid="uid://bjo8xqfo8fod2" path="res://assets/sprites/Tavern_Assets/Temp_Tavern_Tileset.png" id="3_fung2"]
+[ext_resource type="Texture2D" uid="uid://c3gloegljsl1a" path="res://assets/sprites/Tavern_Assets/Tavern_Keeper.png" id="4_scr08"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4qj5b"]
 texture = ExtResource("3_fung2")
@@ -25,7 +26,19 @@ texture = ExtResource("3_fung2")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4qj5b")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pscxp"]
+texture = ExtResource("3_fung2")
+31:13/size_in_atlas = Vector2i(12, 11)
+31:13/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ixhx"]
+texture = ExtResource("4_scr08")
+0:0/size_in_atlas = Vector2i(5, 6)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_jmy7k"]
+sources/1 = SubResource("TileSetAtlasSource_pscxp")
+sources/3 = SubResource("TileSetAtlasSource_0ixhx")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jpi8b")
