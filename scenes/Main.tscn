@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://14sqlws4ymal"]
+[gd_scene load_steps=7 format=4 uid="uid://14sqlws4ymal"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jpi8b"]
 [ext_resource type="PackedScene" uid="uid://ecexpearvdmp" path="res://scenes/Player.tscn" id="2_kcmxe"]
@@ -8,10 +8,6 @@
 texture = ExtResource("3_fung2")
 36:1/size_in_atlas = Vector2i(10, 11)
 36:1/0 = 0
-5:13/size_in_atlas = Vector2i(13, 13)
-5:13/0 = 0
-18:13/size_in_atlas = Vector2i(13, 13)
-18:13/0 = 0
 31:13/size_in_atlas = Vector2i(13, 12)
 31:13/0 = 0
 1:26/size_in_atlas = Vector2i(4, 7)
@@ -20,17 +16,33 @@ texture = ExtResource("3_fung2")
 1:33/0 = 0
 5:27/size_in_atlas = Vector2i(41, 39)
 5:27/0 = 0
+5:13/size_in_atlas = Vector2i(13, 12)
+5:13/0 = 0
+18:13/size_in_atlas = Vector2i(13, 12)
+18:13/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_j08dk"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4qj5b")
+
+[sub_resource type="TileSet" id="TileSet_jmy7k"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jpi8b")
 
 [node name="Player" parent="." instance=ExtResource("2_kcmxe")]
+top_level = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_j08dk")
 format = 2
+
+[node name="Layer0" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AADY//D/AAASAA0AAADY/+X/AAASAA0AAADk/+X/AAASAA0AAADM//D/AAASAA0AAADk//D/AAASAA0AAADA//D/AAASAA0AAADA/+X/AAASAA0AAADM/+X/AAASAA0AAADw/+X/AAASAA0AAADw//D/AAASAA0AAADA/9r/AAASAA0AAADM/9r/AAASAA0AAADY/9r/AAASAA0AAADk/9r/AAASAA0AAADw/9r/AAASAA0AAADA//v/AAASAA0AAADM//v/AAASAA0AAADY//v/AAASAA0AAADk//v/AAASAA0AAADw//v/AAASAA0AAAD8//v/AAASAA0AAAD8//D/AAASAA0AAAD8/+X/AAASAA0AAAD8/9r/AAASAA0AAADT/+f/AAAfAA0AAAA=")
+tile_set = SubResource("TileSet_j08dk")
+
+[node name="layer1" type="TileMapLayer" parent="TileMap"]
+tile_set = SubResource("TileSet_jmy7k")
