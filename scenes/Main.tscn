@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://14sqlws4ymal"]
+[gd_scene load_steps=13 format=4 uid="uid://14sqlws4ymal"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jpi8b"]
 [ext_resource type="PackedScene" uid="uid://ecexpearvdmp" path="res://scenes/Player.tscn" id="2_kcmxe"]
 [ext_resource type="Texture2D" uid="uid://bjo8xqfo8fod2" path="res://assets/sprites/Tavern_Assets/Temp_Tavern_Tileset.png" id="3_fung2"]
+[ext_resource type="Texture2D" uid="uid://ca5md2iqg3on1" path="res://assets/sprites/Tavern_Assets/Tabel.png" id="4_a4swx"]
 [ext_resource type="Texture2D" uid="uid://c3gloegljsl1a" path="res://assets/sprites/Tavern_Assets/Tavern_Keeper.png" id="4_scr08"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4qj5b"]
@@ -22,23 +23,37 @@ texture = ExtResource("3_fung2")
 18:13/size_in_atlas = Vector2i(13, 12)
 18:13/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1t4nj"]
+texture = ExtResource("4_a4swx")
+0:0/size_in_atlas = Vector2i(12, 11)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_j08dk"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4qj5b")
+sources/1 = SubResource("TileSetAtlasSource_1t4nj")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pscxp"]
 texture = ExtResource("3_fung2")
 31:13/size_in_atlas = Vector2i(12, 11)
 31:13/0 = 0
+16:26/size_in_atlas = Vector2i(15, 15)
+16:26/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ixhx"]
 texture = ExtResource("4_scr08")
 0:0/size_in_atlas = Vector2i(5, 6)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4mcc"]
+texture = ExtResource("4_a4swx")
+0:0/size_in_atlas = Vector2i(14, 13)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_jmy7k"]
 sources/1 = SubResource("TileSetAtlasSource_pscxp")
 sources/3 = SubResource("TileSetAtlasSource_0ixhx")
+sources/4 = SubResource("TileSetAtlasSource_h4mcc")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jpi8b")
@@ -52,10 +67,11 @@ top_level = true
 tile_set = SubResource("TileSet_j08dk")
 format = 2
 
-[node name="Layer0" type="TileMapLayer" parent="TileMap"]
+[node name="Layer1" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
 tile_map_data = PackedByteArray("AADY//D/AAASAA0AAADY/+X/AAASAA0AAADk/+X/AAASAA0AAADM//D/AAASAA0AAADk//D/AAASAA0AAADA//D/AAASAA0AAADA/+X/AAASAA0AAADM/+X/AAASAA0AAADw/+X/AAASAA0AAADw//D/AAASAA0AAADA/9r/AAASAA0AAADM/9r/AAASAA0AAADY/9r/AAASAA0AAADk/9r/AAASAA0AAADw/9r/AAASAA0AAADA//v/AAASAA0AAADM//v/AAASAA0AAADY//v/AAASAA0AAADk//v/AAASAA0AAADw//v/AAASAA0AAAD8//v/AAASAA0AAAD8//D/AAASAA0AAAD8/+X/AAASAA0AAAD8/9r/AAASAA0AAADT/+f/AAAfAA0AAAA=")
 tile_set = SubResource("TileSet_j08dk")
 
-[node name="layer1" type="TileMapLayer" parent="TileMap"]
+[node name="layer2" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray("AADB/83/AQAQABoAAADQ/83/AQAQABoAAADf/83/AQAQABoAAADu/83/AQAQABoAAAD6/83/AQAQABoAAADM/+D/BAAAAAAAAADM//T/BAAAAAAAAADw//T/BAAAAAAAAADw/+D/BAAAAAAAAAA=")
 tile_set = SubResource("TileSet_jmy7k")
