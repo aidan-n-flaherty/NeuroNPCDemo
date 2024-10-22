@@ -1,9 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://14sqlws4ymal"]
+[gd_scene load_steps=6 format=3 uid="uid://14sqlws4ymal"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jpi8b"]
 [ext_resource type="PackedScene" uid="uid://ecexpearvdmp" path="res://scenes/Player.tscn" id="2_kcmxe"]
+[ext_resource type="Texture2D" uid="uid://bjo8xqfo8fod2" path="res://assets/sprites/Tavern_Assets/Temp_Tavern_Tileset.png" id="3_fung2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4qj5b"]
+texture = ExtResource("3_fung2")
+36:1/size_in_atlas = Vector2i(10, 11)
+36:1/0 = 0
+5:13/size_in_atlas = Vector2i(13, 13)
+5:13/0 = 0
+18:13/size_in_atlas = Vector2i(13, 13)
+18:13/0 = 0
+31:13/size_in_atlas = Vector2i(13, 12)
+31:13/0 = 0
+1:26/size_in_atlas = Vector2i(4, 7)
+1:26/0 = 0
+1:33/size_in_atlas = Vector2i(4, 18)
+1:33/0 = 0
+5:27/size_in_atlas = Vector2i(41, 39)
+5:27/0 = 0
+11:26/0 = 0
+10:26/0 = 0
+4:13/0 = 0
+4:12/0 = 0
+4:11/0 = 0
+3:10/0 = 0
+3:9/0 = 0
+3:8/0 = 0
+2:7/0 = 0
+2:6/0 = 0
+2:5/0 = 0
+1:4/0 = 0
+1:3/0 = 0
+1:2/0 = 0
+0:1/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_j08dk"]
+sources/0 = SubResource("TileSetAtlasSource_4qj5b")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jpi8b")
 
 [node name="Player" parent="." instance=ExtResource("2_kcmxe")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_j08dk")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 327680, 27)
