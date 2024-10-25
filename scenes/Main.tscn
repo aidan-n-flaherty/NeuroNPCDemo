@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://14sqlws4ymal"]
+[gd_scene load_steps=14 format=4 uid="uid://14sqlws4ymal"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jpi8b"]
 [ext_resource type="PackedScene" uid="uid://ecexpearvdmp" path="res://scenes/Player.tscn" id="2_kcmxe"]
 [ext_resource type="Texture2D" uid="uid://bjo8xqfo8fod2" path="res://assets/sprites/Tavern_Assets/Temp_Tavern_Tileset.png" id="3_fung2"]
 [ext_resource type="Texture2D" uid="uid://ca5md2iqg3on1" path="res://assets/sprites/Tavern_Assets/Tabel.png" id="4_a4swx"]
 [ext_resource type="Texture2D" uid="uid://c3gloegljsl1a" path="res://assets/sprites/Tavern_Assets/Tavern_Keeper.png" id="4_scr08"]
+[ext_resource type="Texture2D" uid="uid://g4aetdneg1m0" path="res://assets/sprites/Tavern_Assets/Croped_wall.png" id="6_sfu0d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4qj5b"]
 texture = ExtResource("3_fung2")
@@ -60,6 +61,7 @@ script = ExtResource("1_jpi8b")
 
 [node name="Player" parent="." instance=ExtResource("2_kcmxe")]
 top_level = true
+position = Vector2(208, -136)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -69,9 +71,27 @@ format = 2
 
 [node name="Layer1" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AADY//D/AAASAA0AAADY/+X/AAASAA0AAADk/+X/AAASAA0AAADM//D/AAASAA0AAADk//D/AAASAA0AAADA//D/AAASAA0AAADA/+X/AAASAA0AAADM/+X/AAASAA0AAADw/+X/AAASAA0AAADw//D/AAASAA0AAADA/9r/AAASAA0AAADM/9r/AAASAA0AAADY/9r/AAASAA0AAADk/9r/AAASAA0AAADw/9r/AAASAA0AAADA//v/AAASAA0AAADM//v/AAASAA0AAADY//v/AAASAA0AAADk//v/AAASAA0AAADw//v/AAASAA0AAAD8//v/AAASAA0AAAD8//D/AAASAA0AAAD8/+X/AAASAA0AAAD8/9r/AAASAA0AAADT/+f/AAAfAA0AAAA=")
+tile_map_data = PackedByteArray("AADY//D/AAASAA0AAADY/+X/AAASAA0AAADk/+X/AAASAA0AAADM//D/AAASAA0AAADk//D/AAASAA0AAADA//D/AAASAA0AAADA/+X/AAASAA0AAADM/+X/AAASAA0AAADw/+X/AAASAA0AAADw//D/AAASAA0AAADA/9r/AAASAA0AAADM/9r/AAASAA0AAADY/9r/AAASAA0AAADk/9r/AAASAA0AAADw/9r/AAASAA0AAADA//v/AAASAA0AAADM//v/AAASAA0AAADY//v/AAASAA0AAADk//v/AAASAA0AAADw//v/AAASAA0AAAD8//v/AAASAA0AAAD8//D/AAASAA0AAAD8/+X/AAASAA0AAAD8/9r/AAASAA0AAADT/+f/AAAfAA0AAAAIANr/AAASAA0AAAAUANr/AAASAA0AAAAgANr/AAASAA0AAAAIAOX/AAASAA0AAAAUAOX/AAASAA0AAAAgAOX/AAASAA0AAAAIAPD/AAASAA0AAAAUAPD/AAASAA0AAAAgAPD/AAASAA0AAAAgAPv/AAASAA0AAAAUAPv/AAASAA0AAAAIAPv/AAASAA0AAAAlANf/AAABABoAAAAlAN3/AAABABoAAAAlAOL/AAABABoAAAAlAOj/AAABABoAAAAlAO3/AAABABoAAAAlAPL/AAABACEAAAAlAMj/AAABABoAAAAlAM7/AAABABoAAAAlANH/AAABABoAAAAlAP3/AAABABoAAAAlAAMAAAABABoAAAAlAAkAAAABABoAAAAlAAwAAAABABoAAAAlAA0AAAABABoAAAC5/w0AAAABABoAAAC5/wcAAAABABoAAAC5/wEAAAABABoAAAC5//v/AAABABoAAAC5//X/AAABABoAAAC5/+//AAABABoAAAC5/+n/AAABABoAAAC5/+P/AAABABoAAAC5/93/AAABABoAAAC5/9f/AAABABoAAAC5/9H/AAABABoAAAC5/8v/AAABABoAAAC5/8j/AAABABoAAAA=")
 tile_set = SubResource("TileSet_j08dk")
 
 [node name="Layer2" type="TileMapLayer" parent="TileMap"]
 tile_map_data = PackedByteArray("AADB/83/AQAQABoAAADQ/83/AQAQABoAAADf/83/AQAQABoAAADu/83/AQAQABoAAAD6/83/AQAQABoAAADM/+D/BAAAAAAAAADM//T/BAAAAAAAAADw//T/BAAAAAAAAADw/+D/BAAAAAAAAAA=")
 tile_set = SubResource("TileSet_jmy7k")
+
+[node name="CropedWall" type="Sprite2D" parent="."]
+position = Vector2(-528, -808)
+scale = Vector2(1, 0.833333)
+texture = ExtResource("6_sfu0d")
+
+[node name="CropedWall2" type="Sprite2D" parent="."]
+position = Vector2(0, -808)
+scale = Vector2(1, 0.833333)
+texture = ExtResource("6_sfu0d")
+
+[node name="CropedWall3" type="Sprite2D" parent="."]
+position = Vector2(-8, 120)
+texture = ExtResource("6_sfu0d")
+
+[node name="CropedWall4" type="Sprite2D" parent="."]
+position = Vector2(-528, 120)
+texture = ExtResource("6_sfu0d")
