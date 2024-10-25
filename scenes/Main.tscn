@@ -31,11 +31,9 @@ texture = ExtResource("4_a4swx")
 0:0/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0u06c"]
-load_path = "res://.godot/imported/grass.png-5d70ba16473ae9e8b8b0567ff9b52706.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5j08g"]
 texture = SubResource("CompressedTexture2D_0u06c")
-0:0/size_in_atlas = Vector2i(12, 12)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_j08dk"]

@@ -8,11 +8,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var speed = 5
+	if Input.is_action_pressed("run"):
+		speed = 10
 	if Input.is_action_pressed("move_right"):
-		position.x += 10
+		position.x += speed
 	if Input.is_action_pressed("move_left"):
-		position.x -= 10
+		position.x -= speed
 	if Input.is_action_pressed("move_down"):
-		position.y += 10
+		position.y += speed
 	if Input.is_action_pressed("move_up"):
-		position.y -= 10
+		position.y -= speed
