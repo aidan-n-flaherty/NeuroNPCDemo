@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://14sqlws4ymal"]
+[gd_scene load_steps=19 format=4 uid="uid://14sqlws4ymal"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jpi8b"]
 [ext_resource type="Texture2D" uid="uid://dyhcs4rqinphn" path="res://assets/sprites/Tavern_Assets/Grass_Background.png" id="2_4abit"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://ca5md2iqg3on1" path="res://assets/sprites/Tavern_Assets/Tabel.png" id="4_a4swx"]
 [ext_resource type="Texture2D" uid="uid://c3gloegljsl1a" path="res://assets/sprites/Tavern_Assets/Tavern_Keeper.png" id="4_scr08"]
 [ext_resource type="Texture2D" uid="uid://g4aetdneg1m0" path="res://assets/sprites/Tavern_Assets/Croped_wall.png" id="6_sfu0d"]
+[ext_resource type="Texture2D" uid="uid://bnqcn1bclm3ey" path="res://assets/sprites/Tavern_Assets/Grass_Type2.png" id="8_g8w02"]
+[ext_resource type="Texture2D" uid="uid://brjaao6e7o6i3" path="res://assets/sprites/Tavern_Assets/Grass_Type3.png" id="9_md4bu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4qj5b"]
 texture = ExtResource("3_fung2")
@@ -31,9 +33,11 @@ texture = ExtResource("4_a4swx")
 0:0/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0u06c"]
+load_path = "res://.godot/imported/grass.png-5d70ba16473ae9e8b8b0567ff9b52706.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5j08g"]
 texture = SubResource("CompressedTexture2D_0u06c")
+0:0/size_in_atlas = Vector2i(12, 12)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_j08dk"]
@@ -68,7 +72,7 @@ sources/4 = SubResource("TileSetAtlasSource_h4mcc")
 script = ExtResource("1_jpi8b")
 
 [node name="GrassBackground" type="Sprite2D" parent="."]
-position = Vector2(-144, -380)
+position = Vector2(-144, -360)
 scale = Vector2(3.76389, 2.3125)
 texture = ExtResource("2_4abit")
 
@@ -109,3 +113,93 @@ texture = ExtResource("6_sfu0d")
 [node name="FrontWall2" type="Sprite2D" parent="."]
 position = Vector2(-528, 120)
 texture = ExtResource("6_sfu0d")
+
+[node name="GrassTypes" type="Node" parent="."]
+
+[node name="GrassType2" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(-1725, -228)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType3" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(-1445, 452)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType4" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(-120, 504)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType5" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(-872, 608)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType6" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(832, 696)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType7" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(1048, 240)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType8" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(1664, 576)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType9" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(944, -520)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType10" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(1592, -200)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType11" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(-2032, 544)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType12" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(1200, -952)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType13" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(1776, -1504)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType14" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(1816, -736)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType15" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(904, -1488)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType16" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(-232, -1232)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType17" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(-1128, -1144)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType18" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(-1936, -1096)
+texture = ExtResource("8_g8w02")
+
+[node name="GrassType19" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(-1696, 216)
+texture = ExtResource("9_md4bu")
+
+[node name="GrassType20" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(-1240, 792)
+texture = ExtResource("9_md4bu")
+
+[node name="GrassType21" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(-2096, -216)
+texture = ExtResource("9_md4bu")
+
+[node name="GrassType22" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(-1336, -24)
+texture = ExtResource("9_md4bu")
+
+[node name="GrassType23" type="Sprite2D" parent="GrassTypes"]
+position = Vector2(-440, 808)
+texture = ExtResource("9_md4bu")
