@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jpi8b"]
 [ext_resource type="Texture2D" uid="uid://dyhcs4rqinphn" path="res://assets/sprites/Tavern_Assets/Grass_Background.png" id="2_4abit"]
-[ext_resource type="PackedScene" uid="uid://ecexpearvdmp" path="res://scenes/Player.tscn" id="2_kcmxe"]
 [ext_resource type="Texture2D" uid="uid://bjo8xqfo8fod2" path="res://assets/sprites/Tavern_Assets/Temp_Tavern_Tileset.png" id="3_fung2"]
+[ext_resource type="PackedScene" uid="uid://biufa3lrtxrwe" path="res://scenes/Player.tscn" id="3_icc54"]
 [ext_resource type="Texture2D" uid="uid://ca5md2iqg3on1" path="res://assets/sprites/Tavern_Assets/Tabel.png" id="4_a4swx"]
 [ext_resource type="Texture2D" uid="uid://c3gloegljsl1a" path="res://assets/sprites/Tavern_Assets/Tavern_Keeper.png" id="4_scr08"]
 [ext_resource type="Texture2D" uid="uid://g4aetdneg1m0" path="res://assets/sprites/Tavern_Assets/Croped_wall.png" id="6_sfu0d"]
@@ -33,11 +33,9 @@ texture = ExtResource("4_a4swx")
 0:0/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0u06c"]
-load_path = "res://.godot/imported/grass.png-5d70ba16473ae9e8b8b0567ff9b52706.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5j08g"]
 texture = SubResource("CompressedTexture2D_0u06c")
-0:0/size_in_atlas = Vector2i(12, 12)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_j08dk"]
@@ -75,13 +73,6 @@ script = ExtResource("1_jpi8b")
 position = Vector2(-144, -360)
 scale = Vector2(3.76389, 2.3125)
 texture = ExtResource("2_4abit")
-
-[node name="Player" parent="." instance=ExtResource("2_kcmxe")]
-top_level = true
-position = Vector2(208, -136)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.6, 0.6)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_j08dk")
@@ -203,3 +194,8 @@ texture = ExtResource("9_md4bu")
 [node name="GrassType23" type="Sprite2D" parent="GrassTypes"]
 position = Vector2(-440, 808)
 texture = ExtResource("9_md4bu")
+
+[node name="Player" parent="." instance=ExtResource("3_icc54")]
+position = Vector2(176, -112)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]

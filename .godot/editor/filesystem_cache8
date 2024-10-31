@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1729890999
+::res://::1730335778
 icon.svg::CompressedTexture2D::4257374483844416877::1729632298::1729632539::1::::<><>::
 smoke.jpg::CompressedTexture2D::7703223044631546591::1729632298::1729632539::1::::<><>::
 ::res://assets/::1729632298
@@ -21,7 +21,7 @@ jump.wav::AudioStreamWAV::7657130112356327741::1729632298::1729632539::1::::<><>
 power_up.wav::AudioStreamWAV::6285326462175014403::1729632298::1729632539::1::::<><>::
 tap.wav::AudioStreamWAV::3976115288444161454::1729632298::1729632539::1::::<><>::
 ::res://assets/sprites/::1729888888
-::res://assets/sprites/Tavern_Assets/::1729890999
+::res://assets/sprites/Tavern_Assets/::1729891000
 BeerSmall.png::CompressedTexture2D::8746539368841231955::1729889312::1729889315::1::::<><>::
 Beer_Deco.png::CompressedTexture2D::2211581210355465504::1729632298::1729632539::1::::<><>::
 Candle.png::CompressedTexture2D::4211545829397330292::1729888554::1729888559::1::::<><>::
@@ -39,10 +39,10 @@ Tavern_Keeper.png::CompressedTexture2D::6751208363685332000::1729632298::1729632
 Temp_Tavern_Tileset.png::CompressedTexture2D::3049067147791367537::1729632298::1729632539::1::::<><>::
 WoodenPlank_1-export.png::CompressedTexture2D::4368737875749492137::1729632298::1729632539::1::::<><>::
 WoodenPlank_2.png::CompressedTexture2D::1962984433591406128::1729632298::1729632539::1::::<><>::
-::res://scenes/::1729890999
-Main.tscn::PackedScene::1885898980628947467::1729890980::0::1::::<><>::res://scripts/main.gd<>uid://dyhcs4rqinphn::::res://assets/sprites/Tavern_Assets/Grass_Background.png<>uid://ecexpearvdmp::::res://scenes/Player.tscn<>uid://bjo8xqfo8fod2::::res://assets/sprites/Tavern_Assets/Temp_Tavern_Tileset.png<>uid://ca5md2iqg3on1::::res://assets/sprites/Tavern_Assets/Tabel.png<>uid://c3gloegljsl1a::::res://assets/sprites/Tavern_Assets/Tavern_Keeper.png<>uid://g4aetdneg1m0::::res://assets/sprites/Tavern_Assets/Croped_wall.png<>uid://ba8md0kj4ou1t::::res://assets/sprites/Tavern_Assets/Grass_Type2.png
-Player.tscn::PackedScene::285168865344144363::1729890998::0::1::::<><>::res://scripts/player.gd<>uid://dh0q7ts1kmmdj::::res://smoke.jpg
-::res://scripts/::1729890999
+::res://scenes/::1730335778
+Main.tscn::PackedScene::1885898980628947467::1730335779::0::1::::<><>::res://scripts/main.gd<>uid://dyhcs4rqinphn::::res://assets/sprites/Tavern_Assets/Grass_Background.png<>uid://bjo8xqfo8fod2::::res://assets/sprites/Tavern_Assets/Temp_Tavern_Tileset.png<>uid://biufa3lrtxrwe::::res://scenes/Player.tscn<>uid://ca5md2iqg3on1::::res://assets/sprites/Tavern_Assets/Tabel.png<>uid://c3gloegljsl1a::::res://assets/sprites/Tavern_Assets/Tavern_Keeper.png<>uid://g4aetdneg1m0::::res://assets/sprites/Tavern_Assets/Croped_wall.png<>uid://bnqcn1bclm3ey::::res://assets/sprites/Tavern_Assets/Grass_Type2.png<>uid://brjaao6e7o6i3::::res://assets/sprites/Tavern_Assets/Grass_Type3.png
+Player.tscn::PackedScene::2989524061287757564::1730335792::0::1::::<><>::uid://dh0q7ts1kmmdj::::res://smoke.jpg<>res://scripts/player_1.gd
+::res://scripts/::1730335739
 main.gd::GDScript::-1::1729632298::0::1::::<>Node2D<>::
 node_2d.gd::GDScript::-1::1729632298::0::1::::<>Node2D<>::
-player.gd::GDScript::-1::1729890999::0::1::::<>Sprite2D<>::
+player_1.gd::GDScript::-1::1730335383::0::1::::<>Area2D<>::
