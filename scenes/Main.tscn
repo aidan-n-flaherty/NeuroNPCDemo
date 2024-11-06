@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://14sqlws4ymal"]
+[gd_scene load_steps=31 format=4 uid="uid://14sqlws4ymal"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jpi8b"]
 [ext_resource type="Texture2D" uid="uid://dyhcs4rqinphn" path="res://assets/sprites/Tavern_Assets/Grass_Background.png" id="2_4abit"]
@@ -66,8 +66,44 @@ sources/1 = SubResource("TileSetAtlasSource_pscxp")
 sources/3 = SubResource("TileSetAtlasSource_0ixhx")
 sources/4 = SubResource("TileSetAtlasSource_h4mcc")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdw60"]
-size = Vector2(480, 112)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7nj5e"]
+a = Vector2(691.236, 1155.09)
+b = Vector2(1418.85, 1155.09)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1b7tr"]
+a = Vector2(0, -2187.84)
+b = Vector2(0, 129.543)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ca8vr"]
+b = Vector2(1.4115, 2316.59)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_p0fnk"]
+b = Vector2(-2831.01, 0.708252)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8pui2"]
+b = Vector2(1906.27, -1.34955)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_a4uns"]
+b = Vector2(0, 218.604)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qwjlv"]
+b = Vector2(-1971.37, -0.62561)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dgtkd"]
+b = Vector2(-1.15576, -2734.54)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_absmk"]
+a = Vector2(2967.71, 5.47876)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_t5htw"]
+b = Vector2(-0.427002, 2735.9)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_iekpg"]
+a = Vector2(-0.573853, 6.73145)
+b = Vector2(-794.338, 6.73145)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4vhnh"]
+b = Vector2(0.178955, -216.252)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jpi8b")
@@ -188,10 +224,66 @@ position = Vector2(176, -112)
 [node name="Wall" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Wall"]
-position = Vector2(-250, -342)
-scale = Vector2(0.604714, 0.541211)
+position = Vector2(-250, -322)
+scale = Vector2(0.604714, 0.555799)
 texture = ExtResource("10_v85ti")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2(408, 344)
-shape = SubResource("RectangleShape2D_wdw60")
+position = Vector2(-250, -322)
+scale = Vector2(0.604714, 0.555799)
+shape = SubResource("SegmentShape2D_7nj5e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
+position = Vector2(608, 248)
+scale = Vector2(0.604714, 0.555799)
+shape = SubResource("SegmentShape2D_1b7tr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-1104.85, -967.556)
+scale = Vector2(0.604714, 0.555799)
+shape = SubResource("SegmentShape2D_ca8vr")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Wall"]
+position = Vector2(608, -968)
+scale = Vector2(0.604714, 0.555799)
+shape = SubResource("SegmentShape2D_p0fnk")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-1104.75, 320.75)
+scale = Vector2(0.604714, 0.555799)
+shape = SubResource("SegmentShape2D_8pui2")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Wall"]
+position = Vector2(48, 318.5)
+scale = Vector2(0.604714, 0.555799)
+shape = SubResource("SegmentShape2D_a4uns")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Wall"]
+position = Vector2(48.1121, 440.348)
+scale = Vector2(0.604714, 0.555799)
+shape = SubResource("SegmentShape2D_qwjlv")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-1143.3, 439.854)
+scale = Vector2(0.604714, 0.555799)
+shape = SubResource("SegmentShape2D_dgtkd")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-1146.62, -1083.05)
+scale = Vector2(0.604714, 0.555799)
+shape = SubResource("SegmentShape2D_absmk")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Wall"]
+position = Vector2(648.258, -1080.61)
+scale = Vector2(0.604714, 0.555799)
+shape = SubResource("SegmentShape2D_t5htw")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Wall"]
+position = Vector2(648.347, 436.259)
+scale = Vector2(0.604714, 0.555799)
+shape = SubResource("SegmentShape2D_iekpg")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Wall"]
+position = Vector2(167.892, 440.193)
+scale = Vector2(0.604714, 0.555799)
+shape = SubResource("SegmentShape2D_4vhnh")
