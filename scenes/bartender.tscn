@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu4e8oi2tdcox"]
+[gd_scene load_steps=3 format=3 uid="uid://db7k08upy8fc"]
 
 [ext_resource type="Texture2D" uid="uid://c3gloegljsl1a" path="res://assets/sprites/Tavern_Assets/Tavern_Keeper.png" id="1_nm8yc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqdob"]
+size = Vector2(112, 288)
 
 [node name="bartender" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(11, 16)
+scale = Vector2(1.2619, 1.33333)
 texture = ExtResource("1_nm8yc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 96)
+shape = SubResource("RectangleShape2D_fqdob")

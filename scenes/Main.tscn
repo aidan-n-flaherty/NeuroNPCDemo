@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://14sqlws4ymal"]
+[gd_scene load_steps=37 format=4 uid="uid://14sqlws4ymal"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jpi8b"]
 [ext_resource type="Texture2D" uid="uid://dyhcs4rqinphn" path="res://assets/sprites/Tavern_Assets/Grass_Background.png" id="2_4abit"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c3gloegljsl1a" path="res://assets/sprites/Tavern_Assets/Tavern_Keeper.png" id="4_scr08"]
 [ext_resource type="Texture2D" uid="uid://bnqcn1bclm3ey" path="res://assets/sprites/Tavern_Assets/Grass_Type2.png" id="8_g8w02"]
 [ext_resource type="Texture2D" uid="uid://brjaao6e7o6i3" path="res://assets/sprites/Tavern_Assets/Grass_Type3.png" id="9_md4bu"]
+[ext_resource type="PackedScene" uid="uid://db7k08upy8fc" path="res://scenes/bartender.tscn" id="10_j01uy"]
 [ext_resource type="PackedScene" uid="uid://e8q0yhmjxcl8" path="res://scenes/Portal.tscn" id="10_rm2yg"]
 [ext_resource type="Texture2D" uid="uid://cguaaa3c7yysr" path="res://assets/sprites/Tavern_Assets/Brick_Room.png" id="10_v85ti"]
 [ext_resource type="Texture2D" uid="uid://khk17t86jvhj" path="res://assets/sprites/Tavern_Assets/cupboard.png" id="11_waguy"]
@@ -329,6 +330,9 @@ scale = Vector2(3.68834, 2.30985)
 position = Vector2(17.352, 204.342)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_myxp4")
+
+[node name="bartender" parent="." instance=ExtResource("10_j01uy")]
+position = Vector2(248, -920)
 
 [node name="Cupboard" type="Sprite2D" parent="."]
 position = Vector2(480, -912)
