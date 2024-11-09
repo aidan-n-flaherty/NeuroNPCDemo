@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmcs5xocdo714"]
+
+[ext_resource type="Script" path="res://scripts/main_3d.gd" id="1_m3nth"]
+[ext_resource type="PackedScene" uid="uid://pgaylxrbe1r5" path="res://scenes/3D/Player3D.tscn" id="2_afekp"]
+
+[sub_resource type="Environment" id="Environment_wq0xa"]
+ssr_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_e7t16"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 7.5
+dof_blur_far_transition = 1.0
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_7nb3v"]
+vertices = PackedVector3Array(-4.5, 0.45, -4.5, -4.5, 0.45, 4.5, 4.5, 0.45, 4.5, 4.5, 0.45, -4.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tp7ky"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_draqc"]
+metallic = 0.5
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_7sdw1"]
+material = SubResource("StandardMaterial3D_draqc")
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hqlch"]
+size = Vector3(6.31, 0.1, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h6o23"]
+points = PackedVector3Array(3.20445, 0.100238, 0.551667, -3.20445, -0.100079, -0.550079, -3.20445, 0.100238, -0.550079, 3.20445, -0.100079, -0.550079, -3.20445, -0.100079, 0.551667, -3.20445, 0.100238, 0.551667, 3.20445, 0.100238, -0.550079, 3.20445, -0.100079, 0.551667)
+
+[node name="Main3D" type="Node3D"]
+script = ExtResource("1_m3nth")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 6.18172e-08, 0.707107, 0.707107, -6.18172e-08, 0.707107, -0.707107, 0, 5, -5)
+environment = SubResource("Environment_wq0xa")
+attributes = SubResource("CameraAttributesPractical_e7t16")
+projection = 1
+current = true
+size = 5.0
+far = 15.0
+
+[node name="Player3D" parent="." instance=ExtResource("2_afekp")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -2.18557e-08, 0.5, -0.433013, -0.5, 0.75, 0.25, -0.866025, -0.433013, 0, 5.78196, 0)
+shadow_enabled = true
+shadow_opacity = 0.3
+directional_shadow_mode = 0
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_7nb3v")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="NavigationRegion3D"]
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/RigidBody3D"]
+shape = SubResource("BoxShape3D_tp7ky")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/RigidBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_7sdw1")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01162, 3.26635)
+freeze = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_hqlch")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("ConvexPolygonShape3D_h6o23")
