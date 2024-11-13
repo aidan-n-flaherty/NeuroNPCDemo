@@ -1,6 +1,5 @@
 [gd_scene load_steps=33 format=4 uid="uid://dmt23x77ommeh"]
 
-[ext_resource type="Script" path="res://scripts/outside.gd" id="1_33rs1"]
 [ext_resource type="Texture2D" uid="uid://dyhcs4rqinphn" path="res://assets/sprites/Tavern_Assets/Grass_Background.png" id="2_615jo"]
 [ext_resource type="Texture2D" uid="uid://bjo8xqfo8fod2" path="res://assets/sprites/Tavern_Assets/Temp_Tavern_Tileset.png" id="3_2qjc3"]
 [ext_resource type="Texture2D" uid="uid://ca5md2iqg3on1" path="res://assets/sprites/Tavern_Assets/Tabel.png" id="4_sehgv"]
@@ -9,6 +8,33 @@
 [ext_resource type="Texture2D" uid="uid://brjaao6e7o6i3" path="res://assets/sprites/Tavern_Assets/Grass_Type3.png" id="7_k2p6b"]
 [ext_resource type="Texture2D" uid="uid://cguaaa3c7yysr" path="res://assets/sprites/Tavern_Assets/Brick_Room.png" id="9_dw7ad"]
 [ext_resource type="PackedScene" uid="uid://e8q0yhmjxcl8" path="res://scenes/Portal.tscn" id="9_v44w4"]
+
+[sub_resource type="GDScript" id="GDScript_gmocy"]
+script/source = "extends Node2D
+
+var current_scene = \"Inside\"
+var change_scene = false
+
+
+
+func _ready() -> void:
+	if Global.last_world_position != Vector2(0, 0):
+		$Player.position = Global.last_world_position + Vector2(0, 5)
+
+
+
+func _on_portal_body_entered(body: CharacterBody2D) -> void:
+	if body.is_in_group(\"Player\"):
+		Global.last_world_position = $Player.position
+		change_scene = true
+		change_scenes()
+		
+
+func change_scenes():
+	if change_scene == true:
+		if current_scene == \"res://scenes/Inside.tscn\":
+			get_tree().change_scene_to_file(\"res://scenes/Outside.tscn\")
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4qj5b"]
 texture = ExtResource("3_2qjc3")
@@ -111,8 +137,8 @@ size = Vector2(202, 112)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7yc6f"]
 size = Vector2(42, 42)
 
-[node name="Outside" type="Node2D"]
-script = ExtResource("1_33rs1")
+[node name="Main" type="Node2D"]
+script = SubResource("GDScript_gmocy")
 
 [node name="GrassBackground" type="Sprite2D" parent="."]
 position = Vector2(40, -248)
@@ -306,6 +332,7 @@ position = Vector2(-245, -216)
 shape = SubResource("RectangleShape2D_ylcc6")
 
 [node name="Portal" parent="." instance=ExtResource("9_v44w4")]
+visible = true
 position = Vector2(104, 376)
 
 [node name="OutsideStartPoint" type="Area2D" parent="."]
