@@ -1,12 +1,9 @@
-[gd_scene load_steps=37 format=4 uid="uid://14sqlws4ymal"]
+[gd_scene load_steps=33 format=4 uid="uid://14sqlws4ymal"]
 
-[ext_resource type="Script" path="res://scripts/inside.gd" id="1_8sac1"]
 [ext_resource type="Texture2D" uid="uid://ucrkn47wa6xh" path="res://assets/sprites/Tavern_Assets/inside_background.png" id="2_vfqq8"]
 [ext_resource type="Texture2D" uid="uid://bjo8xqfo8fod2" path="res://assets/sprites/Tavern_Assets/Temp_Tavern_Tileset.png" id="3_n3lod"]
 [ext_resource type="Texture2D" uid="uid://ca5md2iqg3on1" path="res://assets/sprites/Tavern_Assets/Tabel.png" id="4_cvvp1"]
 [ext_resource type="Texture2D" uid="uid://c3gloegljsl1a" path="res://assets/sprites/Tavern_Assets/Tavern_Keeper.png" id="5_ixxew"]
-[ext_resource type="Texture2D" uid="uid://bnqcn1bclm3ey" path="res://assets/sprites/Tavern_Assets/Grass_Type2.png" id="6_ry5u8"]
-[ext_resource type="Texture2D" uid="uid://brjaao6e7o6i3" path="res://assets/sprites/Tavern_Assets/Grass_Type3.png" id="7_8ajrg"]
 [ext_resource type="Texture2D" uid="uid://cguaaa3c7yysr" path="res://assets/sprites/Tavern_Assets/Brick_Room.png" id="8_41k5b"]
 [ext_resource type="PackedScene" uid="uid://e8q0yhmjxcl8" path="res://scenes/Portal.tscn" id="9_6eaq1"]
 [ext_resource type="PackedScene" uid="uid://db7k08upy8fc" path="res://scenes/bartender.tscn" id="10_ubmai"]
@@ -69,9 +66,6 @@ sources/1 = SubResource("TileSetAtlasSource_pscxp")
 sources/3 = SubResource("TileSetAtlasSource_0ixhx")
 sources/4 = SubResource("TileSetAtlasSource_h4mcc")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_myxp4"]
-size = Vector2(9.7605, 15.3903)
-
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7nj5e"]
 a = Vector2(691.236, 1155.09)
 b = Vector2(1418.85, 1155.09)
@@ -118,102 +112,11 @@ size = Vector2(202, 112)
 size = Vector2(229, 232)
 
 [node name="Inside" type="Node2D"]
-script = ExtResource("1_8sac1")
 
 [node name="GrassBackground" type="Sprite2D" parent="."]
 position = Vector2(-16, -272)
 scale = Vector2(3.68834, 2.30985)
 texture = ExtResource("2_vfqq8")
-
-[node name="GrassTypes" type="Node" parent="."]
-
-[node name="GrassType2" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-1725, -228)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType3" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-1445, 452)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType4" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-120, 568)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType5" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-872, 608)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType6" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(832, 696)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType7" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(1048, 240)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType8" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(1664, 576)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType9" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(944, -520)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType10" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(1592, -200)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType11" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-2032, 544)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType12" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(1200, -952)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType13" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(1776, -1504)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType14" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(1816, -736)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType15" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(904, -1488)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType16" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-232, -1232)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType17" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-1208, -1224)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType18" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-1936, -1096)
-texture = ExtResource("6_ry5u8")
-
-[node name="GrassType19" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-1696, 216)
-texture = ExtResource("7_8ajrg")
-
-[node name="GrassType20" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-1240, 792)
-texture = ExtResource("7_8ajrg")
-
-[node name="GrassType21" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-2096, -216)
-texture = ExtResource("7_8ajrg")
-
-[node name="GrassType22" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-1336, -24)
-texture = ExtResource("7_8ajrg")
-
-[node name="GrassType23" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-440, 808)
-texture = ExtResource("7_8ajrg")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_j08dk")
@@ -228,18 +131,6 @@ tile_set = SubResource("TileSet_j08dk")
 tile_map_data = PackedByteArray("AADM/+D/BAAAAAAAAADM//T/BAAAAAAAAADw//T/BAAAAAAAAADw/+D/BAAAAAAAAAA=")
 tile_set = SubResource("TileSet_jmy7k")
 
-[node name="Portal" parent="." instance=ExtResource("9_6eaq1")]
-visible = true
-position = Vector2(104, 384)
-
-[node name="InsideStartPoint" type="Area2D" parent="."]
-position = Vector2(40, -248)
-scale = Vector2(3.68834, 2.30985)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InsideStartPoint"]
-position = Vector2(17.352, 204.342)
-shape = SubResource("RectangleShape2D_myxp4")
-
 [node name="bartender" parent="." instance=ExtResource("10_ubmai")]
 position = Vector2(248, -920)
 
@@ -248,9 +139,7 @@ position = Vector2(240, -816)
 texture = ExtResource("4_cvvp1")
 
 [node name="Player" parent="." instance=ExtResource("12_n4g0g")]
-position = Vector2(176, -112)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(112, 224)
 
 [node name="Collidables" type="StaticBody2D" parent="."]
 
@@ -348,4 +237,5 @@ position = Vector2(480, -912)
 scale = Vector2(0.822034, 0.766129)
 texture = ExtResource("11_aw87o")
 
-[connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
+[node name="Portal" parent="." instance=ExtResource("9_6eaq1")]
+position = Vector2(112, 376)

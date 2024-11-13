@@ -29,7 +29,3 @@ func _physics_process(delta: float) -> void:
 	# Apply Movement and Collisions
 	velocity = velocity * speed
 	move_and_slide()
-	
-
-func spawn(start_pos):
-	global_position = start_pos
