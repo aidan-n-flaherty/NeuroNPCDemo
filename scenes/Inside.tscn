@@ -1,6 +1,5 @@
-[gd_scene load_steps=33 format=4 uid="uid://14sqlws4ymal"]
+[gd_scene load_steps=32 format=4 uid="uid://14sqlws4ymal"]
 
-[ext_resource type="Texture2D" uid="uid://ucrkn47wa6xh" path="res://assets/sprites/Tavern_Assets/inside_background.png" id="2_vfqq8"]
 [ext_resource type="Texture2D" uid="uid://bjo8xqfo8fod2" path="res://assets/sprites/Tavern_Assets/Temp_Tavern_Tileset.png" id="3_n3lod"]
 [ext_resource type="Texture2D" uid="uid://ca5md2iqg3on1" path="res://assets/sprites/Tavern_Assets/Tabel.png" id="4_cvvp1"]
 [ext_resource type="Texture2D" uid="uid://c3gloegljsl1a" path="res://assets/sprites/Tavern_Assets/Tavern_Keeper.png" id="5_ixxew"]
@@ -113,11 +112,6 @@ size = Vector2(229, 232)
 
 [node name="Inside" type="Node2D"]
 
-[node name="GrassBackground" type="Sprite2D" parent="."]
-position = Vector2(-16, -272)
-scale = Vector2(3.68834, 2.30985)
-texture = ExtResource("2_vfqq8")
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_j08dk")
 format = 2
@@ -140,6 +134,9 @@ texture = ExtResource("4_cvvp1")
 
 [node name="Player" parent="." instance=ExtResource("12_n4g0g")]
 position = Vector2(112, 224)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
 
 [node name="Collidables" type="StaticBody2D" parent="."]
 
@@ -239,3 +236,11 @@ texture = ExtResource("11_aw87o")
 
 [node name="Portal" parent="." instance=ExtResource("9_6eaq1")]
 position = Vector2(112, 376)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(112, 224)
+limit_left = -1148
+limit_top = -1084
+limit_right = 648
+limit_bottom = 440
+editor_draw_limits = true
