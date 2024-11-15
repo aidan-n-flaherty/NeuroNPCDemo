@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmcs5xocdo714"]
+[gd_scene load_steps=12 format=3 uid="uid://cmcs5xocdo714"]
 
 [ext_resource type="Script" path="res://scripts/main_3d.gd" id="1_m3nth"]
 [ext_resource type="PackedScene" uid="uid://pgaylxrbe1r5" path="res://scenes/3D/Player3D.tscn" id="2_afekp"]
+[ext_resource type="PackedScene" uid="uid://bhghvd5d5on0v" path="res://scenes/3D/NPC3D.tscn" id="3_on2yo"]
 
 [sub_resource type="Environment" id="Environment_wq0xa"]
 ssr_enabled = true
@@ -74,3 +75,6 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("ConvexPolygonShape3D_h6o23")
+
+[node name="NPC3D" parent="." instance=ExtResource("3_on2yo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02453, 0, 0)

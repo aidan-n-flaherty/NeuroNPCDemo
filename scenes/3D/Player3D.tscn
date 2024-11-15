@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://pgaylxrbe1r5"]
+[gd_scene load_steps=6 format=3 uid="uid://pgaylxrbe1r5"]
 
 [ext_resource type="Script" path="res://scripts/player_3d.gd" id="1_mtmcb"]
+[ext_resource type="Script" path="res://scripts/player_brain.gd" id="2_ck20k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5wp8r"]
 size = Vector3(0.5, 1, 0.5)
@@ -21,3 +22,6 @@ shape = SubResource("BoxShape3D_5wp8r")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 mesh = SubResource("BoxMesh_vlnu8")
 skeleton = NodePath("../..")
+
+[node name="Brain" type="Node3D" parent="."]
+script = ExtResource("2_ck20k")

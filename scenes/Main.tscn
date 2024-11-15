@@ -328,7 +328,6 @@ scale = Vector2(3.68834, 2.30985)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InsideStartPoint"]
 position = Vector2(17.352, 204.342)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_myxp4")
 
 [node name="bartender" parent="." instance=ExtResource("10_j01uy")]

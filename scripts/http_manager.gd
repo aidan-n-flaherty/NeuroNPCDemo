@@ -1,7 +1,7 @@
 extends Node
 class_name HTTPManager
 
-var url = "https://localhost:8080"
+var url = "http://localhost:8080"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
