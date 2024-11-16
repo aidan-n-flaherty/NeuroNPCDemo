@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://dmt23x77ommeh"]
+[gd_scene load_steps=33 format=4 uid="uid://dmt23x77ommeh"]
 
 [ext_resource type="Texture2D" uid="uid://dyhcs4rqinphn" path="res://assets/sprites/Tavern_Assets/Grass_Background.png" id="2_615jo"]
 [ext_resource type="Texture2D" uid="uid://bjo8xqfo8fod2" path="res://assets/sprites/Tavern_Assets/Temp_Tavern_Tileset.png" id="3_2qjc3"]
@@ -8,7 +8,33 @@
 [ext_resource type="Texture2D" uid="uid://brjaao6e7o6i3" path="res://assets/sprites/Tavern_Assets/Grass_Type3.png" id="7_k2p6b"]
 [ext_resource type="Texture2D" uid="uid://cguaaa3c7yysr" path="res://assets/sprites/Tavern_Assets/Brick_Room.png" id="9_dw7ad"]
 [ext_resource type="PackedScene" uid="uid://e8q0yhmjxcl8" path="res://scenes/Portal.tscn" id="9_v44w4"]
-[ext_resource type="PackedScene" uid="uid://biufa3lrtxrwe" path="res://scenes/Player.tscn" id="10_c12e7"]
+
+[sub_resource type="GDScript" id="GDScript_gmocy"]
+script/source = "extends Node2D
+
+var current_scene = \"Inside\"
+var change_scene = false
+
+
+
+func _ready() -> void:
+	if Global.last_world_position != Vector2(0, 0):
+		$Player.position = Global.last_world_position + Vector2(0, 5)
+
+
+
+func _on_portal_body_entered(body: CharacterBody2D) -> void:
+	if body.is_in_group(\"Player\"):
+		Global.last_world_position = $Player.position
+		change_scene = true
+		change_scenes()
+		
+
+func change_scenes():
+	if change_scene == true:
+		if current_scene == \"res://scenes/Inside.tscn\":
+			get_tree().change_scene_to_file(\"res://scenes/Outside.tscn\")
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4qj5b"]
 texture = ExtResource("3_2qjc3")
@@ -105,19 +131,14 @@ b = Vector2(-794.338, 6.73145)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_4vhnh"]
 b = Vector2(0.178955, -216.252)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx7hx"]
-size = Vector2(4477, 112)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijbvi"]
-size = Vector2(123.25, 2784)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylcc6"]
-size = Vector2(99.25, 2760)
+size = Vector2(202, 112)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ecpi"]
-size = Vector2(4376, 112)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yc6f"]
+size = Vector2(42, 42)
 
-[node name="Outside" type="Node2D"]
+[node name="Main" type="Node2D"]
+script = SubResource("GDScript_gmocy")
 
 [node name="GrassBackground" type="Sprite2D" parent="."]
 position = Vector2(40, -248)
@@ -148,7 +169,7 @@ position = Vector2(-1445, 452)
 texture = ExtResource("6_txs02")
 
 [node name="GrassType4" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-117, 784)
+position = Vector2(-120, 568)
 texture = ExtResource("6_txs02")
 
 [node name="GrassType5" type="Sprite2D" parent="GrassTypes"]
@@ -176,7 +197,7 @@ position = Vector2(1592, -200)
 texture = ExtResource("6_txs02")
 
 [node name="GrassType11" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-1928, 552)
+position = Vector2(-2032, 544)
 texture = ExtResource("6_txs02")
 
 [node name="GrassType12" type="Sprite2D" parent="GrassTypes"]
@@ -184,7 +205,7 @@ position = Vector2(1200, -952)
 texture = ExtResource("6_txs02")
 
 [node name="GrassType13" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(1608, -1352)
+position = Vector2(1776, -1504)
 texture = ExtResource("6_txs02")
 
 [node name="GrassType14" type="Sprite2D" parent="GrassTypes"]
@@ -192,7 +213,7 @@ position = Vector2(1816, -736)
 texture = ExtResource("6_txs02")
 
 [node name="GrassType15" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(712, -1384)
+position = Vector2(904, -1488)
 texture = ExtResource("6_txs02")
 
 [node name="GrassType16" type="Sprite2D" parent="GrassTypes"]
@@ -216,7 +237,7 @@ position = Vector2(-1240, 792)
 texture = ExtResource("7_k2p6b")
 
 [node name="GrassType21" type="Sprite2D" parent="GrassTypes"]
-position = Vector2(-1992, -144)
+position = Vector2(-2096, -216)
 texture = ExtResource("7_k2p6b")
 
 [node name="GrassType22" type="Sprite2D" parent="GrassTypes"]
@@ -226,12 +247,6 @@ texture = ExtResource("7_k2p6b")
 [node name="GrassType23" type="Sprite2D" parent="GrassTypes"]
 position = Vector2(-440, 808)
 texture = ExtResource("7_k2p6b")
-
-[node name="Player" parent="." instance=ExtResource("10_c12e7")]
-position = Vector2(112, 512)
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
 
 [node name="Collidables" type="StaticBody2D" parent="."]
 
@@ -301,28 +316,27 @@ scale = Vector2(0.604714, 0.555799)
 shape = SubResource("SegmentShape2D_4vhnh")
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="Collidables"]
-position = Vector2(153.5, -1632)
-shape = SubResource("RectangleShape2D_mx7hx")
+position = Vector2(-822, -536)
+shape = SubResource("RectangleShape2D_ylcc6")
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="Collidables"]
-position = Vector2(2224, -208)
-shape = SubResource("RectangleShape2D_ijbvi")
+position = Vector2(-248, -536)
+shape = SubResource("RectangleShape2D_ylcc6")
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="Collidables"]
-position = Vector2(-2134.38, -300)
+position = Vector2(-822, -216)
 shape = SubResource("RectangleShape2D_ylcc6")
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="Collidables"]
-position = Vector2(-4, 1136)
-shape = SubResource("RectangleShape2D_2ecpi")
+position = Vector2(-245, -216)
+shape = SubResource("RectangleShape2D_ylcc6")
 
 [node name="Portal" parent="." instance=ExtResource("9_v44w4")]
-position = Vector2(112, 376)
+visible = true
+position = Vector2(104, 376)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(112, 512)
-limit_left = -2084
-limit_top = -1578
-limit_right = 2164
-limit_bottom = 1082
-editor_draw_limits = true
+[node name="OutsideStartPoint" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutsideStartPoint"]
+position = Vector2(112, 520)
+shape = SubResource("RectangleShape2D_7yc6f")

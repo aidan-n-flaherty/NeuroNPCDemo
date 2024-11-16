@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="NeuroNPCDemo"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/Inside.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 AgentManager="*res://scripts/agent_manager.gd"
+Global="*res://scripts/global.gd"
 
 [display]
 
