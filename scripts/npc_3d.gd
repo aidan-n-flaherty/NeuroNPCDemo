@@ -1,8 +1,16 @@
 extends CharacterBody3D
 
+@export var speed = 5
+
+var move_path: PackedVector3Array
+
 var speechBubble = null
 
 var timeout = -1
+
+var target = null
+
+var attacking = null
 
 func _ready() -> void:
 	$Brain.init(1)
@@ -11,6 +19,9 @@ func _ready() -> void:
 func acceptCommand(agentID: int, action: Action):
 	if action.actionType == 'say':
 		displaySpeechBubble(action.parameters[0])
+
+func setTarget(target) -> void:
+	self.target = target
 
 func _process(delta: float) -> void:
 	if timeout > 0:
@@ -38,4 +49,19 @@ func displaySpeechBubble(text: String):
 	timeout = 2 + int(len(text) / 10)
 
 func _physics_process(delta: float) -> void:
+	var movement = Vector3()
+	
+	if target:
+		var direction = target.position - position
+		direction.y = 0
+		direction.x *= -1
+		
+		movement = direction.normalized() * speed
+	
+	velocity.x = 0.9 * velocity.x + 0.1 * -movement.x
+	velocity.z = 0.9 * velocity.z + 0.1 * movement.z
+	
+	if velocity.z != 0 or velocity.x != 0:
+		rotation.y = -atan2(velocity.z, velocity.x)
+	
 	move_and_slide()

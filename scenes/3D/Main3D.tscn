@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmcs5xocdo714"]
+[gd_scene load_steps=14 format=3 uid="uid://cmcs5xocdo714"]
 
 [ext_resource type="Script" path="res://scripts/main_3d.gd" id="1_m3nth"]
 [ext_resource type="PackedScene" uid="uid://pgaylxrbe1r5" path="res://scenes/3D/Player3D.tscn" id="2_afekp"]
@@ -19,9 +19,15 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 [sub_resource type="BoxShape3D" id="BoxShape3D_tp7ky"]
 size = Vector3(10, 0.1, 10)
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cxvli"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hjxfc"]
+noise = SubResource("FastNoiseLite_cxvli")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_draqc"]
 metallic = 0.5
 roughness = 0.0
+refraction_texture = SubResource("NoiseTexture2D_hjxfc")
 
 [sub_resource type="BoxMesh" id="BoxMesh_7sdw1"]
 material = SubResource("StandardMaterial3D_draqc")
