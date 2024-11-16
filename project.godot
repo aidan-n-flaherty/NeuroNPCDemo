@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 AgentManager="*res://scripts/agent_manager.gd"
-Global="*res://scripts/global.gd"
 
 [display]
 
