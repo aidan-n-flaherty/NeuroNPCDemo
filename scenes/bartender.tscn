@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://db7k08upy8fc"]
+[gd_scene load_steps=4 format=3 uid="uid://bu4e8oi2tdcox"]
 
 [ext_resource type="Script" path="res://scripts/bartender.gd" id="1_krrjt"]
 [ext_resource type="Texture2D" uid="uid://c3gloegljsl1a" path="res://assets/sprites/Tavern_Assets/Tavern_Keeper.png" id="1_nm8yc"]
@@ -7,6 +7,9 @@
 size = Vector2(112, 288)
 
 [node name="bartender" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
 script = ExtResource("1_krrjt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
