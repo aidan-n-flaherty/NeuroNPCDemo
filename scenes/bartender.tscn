@@ -21,5 +21,9 @@ texture = ExtResource("1_nm8yc")
 position = Vector2(-8, 96)
 shape = SubResource("RectangleShape2D_fqdob")
 
+[node name="CanInteractLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
