@@ -1,27 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://pgaylxrbe1r5"]
+[gd_scene load_steps=5 format=3 uid="uid://pgaylxrbe1r5"]
 
 [ext_resource type="Script" path="res://scripts/player_3d.gd" id="1_mtmcb"]
 [ext_resource type="Script" path="res://scripts/player_brain.gd" id="2_ck20k"]
+[ext_resource type="PackedScene" uid="uid://c5sc6d4lotpjw" path="res://scenes/3D/Character3D.tscn" id="3_xo2ao"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5wp8r"]
-size = Vector3(0.5, 1, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8ly4"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_vlnu8"]
-material = SubResource("StandardMaterial3D_e8ly4")
-size = Vector3(0.5, 1, 0.5)
+size = Vector3(0.5, 1.48, 0.5)
 
 [node name="Player3D" type="CharacterBody3D"]
 script = ExtResource("1_mtmcb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.742609, 0)
 shape = SubResource("BoxShape3D_5wp8r")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-mesh = SubResource("BoxMesh_vlnu8")
-skeleton = NodePath("../..")
 
 [node name="Brain" type="Node3D" parent="."]
 script = ExtResource("2_ck20k")
+
+[node name="Character3D" parent="." instance=ExtResource("3_xo2ao")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)

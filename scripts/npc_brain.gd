@@ -1,9 +1,17 @@
 extends AgentBrain
 
-var target: Vector3
+var target = null
+
+var attacking = null
 
 func init(id: int, artificial=true):
 	super.init(id, artificial)
+
+func processCommand(agentID: int, action: Action):
+	if action.actionType == 'say':
+		get_parent().displaySpeechBubble(action.parameters[0])
+	if action.actionType == 'attack':
+		attacking = AgentManager.getAgent(action.parameters[0])
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

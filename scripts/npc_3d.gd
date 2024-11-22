@@ -6,19 +6,16 @@ var move_path: PackedVector3Array
 
 var speechBubble = null
 
+var health = 100
+
 var timeout = -1
-
-var target = null
-
-var attacking = null
 
 func _ready() -> void:
 	$Brain.init(1)
 	AgentManager.sendCommand.connect(acceptCommand)
 
 func acceptCommand(agentID: int, action: Action):
-	if action.actionType == 'say':
-		displaySpeechBubble(action.parameters[0])
+	$Brain.processCommand(agentID, action)
 
 func setTarget(target) -> void:
 	self.target = target
@@ -51,6 +48,10 @@ func displaySpeechBubble(text: String):
 func _physics_process(delta: float) -> void:
 	var movement = Vector3()
 	
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
+	var target = $Brain.attacking if $Brain.attacking else $Brain.target
 	if target:
 		var direction = target.position - position
 		direction.y = 0

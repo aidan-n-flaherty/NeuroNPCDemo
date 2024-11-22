@@ -25,7 +25,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	elapsed += delta
 	
-	if elapsed >= 0.025 and not $VBoxContainer/MarginContainer/MarginContainer/LineEdit.editable:
+	var nextChar = text.substr(visibleText + 1, 1)
+	var time = 0.05 if nextChar == " " else 0.0125
+	
+	if elapsed >= time and not $VBoxContainer/MarginContainer/MarginContainer/LineEdit.editable:
 		visibleText += 1
 		if visibleText > len(text):
 			visibleText = len(text)
