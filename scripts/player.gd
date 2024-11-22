@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 var speed = 300
 
+@export var inv: Inv
+
 func _physics_process(delta: float) -> void:	
 	
 	# Run 
@@ -30,8 +32,6 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity * speed
 	move_and_slide()
 	
-	# Interact with Bartender
-	# if Input.is_action_pressed("interact") and $"bartender":
 		
 	
 	
