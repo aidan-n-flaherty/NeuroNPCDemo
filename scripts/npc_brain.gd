@@ -1,8 +1,6 @@
 extends AgentBrain
 
-var target = null
-
-var attacking = null
+var target: Vector3
 
 func init(id: int, artificial=true):
 	super.init(id, artificial)

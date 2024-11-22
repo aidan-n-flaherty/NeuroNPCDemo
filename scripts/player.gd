@@ -6,6 +6,8 @@ var timeout = -1
 
 var speechBubble = null
 
+@export var inv: Inv
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_released("open_chat") and not speechBubble:
 		var node = preload("res://scenes/3D/SpeechBubble.tscn").instantiate()
@@ -68,8 +70,6 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity * speed if not suppress else Vector2()
 	move_and_slide()
 	
-	# Interact with Bartender
-	# if Input.is_action_pressed("interact") and $"bartender":
 		
 	
 	

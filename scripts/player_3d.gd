@@ -6,8 +6,6 @@ var speechBubble = null
 
 var timeout = -1
 
-var health = 100
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Brain.init(0)

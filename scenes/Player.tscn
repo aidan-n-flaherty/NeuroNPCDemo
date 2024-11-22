@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://biufa3lrtxrwe"]
+[gd_scene load_steps=7 format=3 uid="uid://biufa3lrtxrwe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_w68ng"]
+[ext_resource type="Resource" uid="uid://bq8lwgaoqdmol" path="res://inventory/playerInventory.tres" id="2_6x0mw"]
 [ext_resource type="Texture2D" uid="uid://mue1gma43iw5" path="res://assets/sprites/Tavern_Assets/Knight.png" id="2_mgkbm"]
 [ext_resource type="Script" path="res://scripts/player_brain.gd" id="3_vnnou"]
+[ext_resource type="PackedScene" uid="uid://no63l5m1e1jv" path="res://inventory/scenes/inventory_ui.tscn" id="4_gkhck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1smbj"]
 size = Vector2(80, 128)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_w68ng")
+inv = ExtResource("2_6x0mw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_mgkbm")
@@ -18,3 +21,9 @@ shape = SubResource("RectangleShape2D_1smbj")
 
 [node name="Brain" type="Node2D" parent="."]
 script = ExtResource("3_vnnou")
+
+[node name="Inventory_UI" parent="." instance=ExtResource("4_gkhck")]
+offset_left = -152.0
+offset_top = -304.0
+offset_right = 152.0
+offset_bottom = -72.0
