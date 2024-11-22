@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c3gloegljsl1a" path="res://assets/sprites/Tavern_Assets/Tavern_Keeper.png" id="4_scr08"]
 [ext_resource type="Texture2D" uid="uid://bnqcn1bclm3ey" path="res://assets/sprites/Tavern_Assets/Grass_Type2.png" id="8_g8w02"]
 [ext_resource type="Texture2D" uid="uid://brjaao6e7o6i3" path="res://assets/sprites/Tavern_Assets/Grass_Type3.png" id="9_md4bu"]
-[ext_resource type="PackedScene" uid="uid://bu4e8oi2tdcox" path="res://scenes/bartender.tscn" id="10_j01uy"]
-[ext_resource type="PackedScene" uid="uid://bb5xols146cd7" path="res://scenes/Portal.tscn" id="10_rm2yg"]
+[ext_resource type="PackedScene" uid="uid://db7k08upy8fc" path="res://scenes/bartender.tscn" id="10_j01uy"]
+[ext_resource type="PackedScene" uid="uid://e8q0yhmjxcl8" path="res://scenes/Portal.tscn" id="10_rm2yg"]
 [ext_resource type="Texture2D" uid="uid://cguaaa3c7yysr" path="res://assets/sprites/Tavern_Assets/Brick_Room.png" id="10_v85ti"]
 [ext_resource type="Texture2D" uid="uid://khk17t86jvhj" path="res://assets/sprites/Tavern_Assets/cupboard.png" id="11_waguy"]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://biufa3lrtxrwe"]
+[gd_scene load_steps=5 format=3 uid="uid://biufa3lrtxrwe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_w68ng"]
 [ext_resource type="Texture2D" uid="uid://mue1gma43iw5" path="res://assets/sprites/Tavern_Assets/Knight.png" id="2_mgkbm"]
+[ext_resource type="Script" path="res://scripts/player_brain.gd" id="3_vnnou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1smbj"]
 size = Vector2(80, 128)
@@ -14,3 +15,6 @@ texture = ExtResource("2_mgkbm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1smbj")
+
+[node name="Brain" type="Node2D" parent="."]
+script = ExtResource("3_vnnou")

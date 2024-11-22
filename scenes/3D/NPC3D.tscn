@@ -19,3 +19,5 @@ script = ExtResource("2_ampte")
 
 [node name="Character3D" parent="." instance=ExtResource("3_rmv3m")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
