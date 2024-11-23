@@ -8,6 +8,8 @@ var http_manager: HTTPManager
 
 var websocket_manager: WebsocketManager
 
+var agents = {}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.websocket_manager = WebsocketManager.new()
@@ -16,6 +18,12 @@ func _ready() -> void:
 	add_child(self.http_manager)
 	
 	self.websocket_manager.command.connect(acceptCommand)
+
+func registerAgent(agentID: int, node: Node):
+	self.agents[agentID] = node
+
+func getAgent(agentID: int) -> Node:
+	return self.agents[agentID]
 
 func emitAction(agentID: int, action: Action):
 	http_manager.postReq('/emitAction', {

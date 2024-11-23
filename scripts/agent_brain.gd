@@ -21,6 +21,8 @@ func init(id: int, artificial=true):
 			"inventory": []
 		}
 	})"""
+	
+	AgentManager.registerAgent(id, get_parent())
 
 func emitAction(action: Action):
 	AgentManager.emitAction(id, action)

@@ -24,8 +24,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	elapsed += delta
+	self.z_index = elapsed
 	
-	if elapsed >= 0.025 and not $VBoxContainer/MarginContainer/MarginContainer/LineEdit.editable:
+	var nextChar = text.substr(visibleText + 1, 1)
+	var time = 0.05 if nextChar == " " else 0.0125
+	
+	if elapsed >= time and not $VBoxContainer/MarginContainer/MarginContainer/LineEdit.editable:
 		visibleText += 1
 		if visibleText > len(text):
 			visibleText = len(text)
@@ -34,12 +38,19 @@ func _process(delta: float) -> void:
 		
 		elapsed = 0
 	
-	var pos_3d = get_parent().global_position + Vector3(0, 2, 0)
-	var cam = get_viewport().get_camera_3d()
-	var pos_2d = cam.unproject_position(pos_3d)
 	
-	global_position = pos_2d - Vector2(self.size.x/2, 0)
-	visible = not cam.is_position_behind(pos_3d)
+	if get_viewport().get_camera_3d():
+		var pos_3d = get_parent().global_position + Vector3(0, 2, 0)
+		var cam = get_viewport().get_camera_3d()
+		var pos_2d = cam.unproject_position(pos_3d)
+		
+		global_position = pos_2d - Vector2(self.size.x/2, 0)
+		visible = not cam.is_position_behind(pos_3d)
+	elif get_viewport().get_camera_2d():
+		var pos_2d = get_parent().global_position - Vector2(0, 200)
+		
+		global_position = pos_2d - Vector2(self.size.x/2, 0)
+		visible = true
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	emit_signal("sendMessage", new_text)

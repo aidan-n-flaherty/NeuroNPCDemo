@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://dvlsnxnaq5pc"]
+[gd_scene load_steps=35 format=4 uid="uid://dmt23x77ommeh"]
 
 [ext_resource type="Texture2D" uid="uid://dyhcs4rqinphn" path="res://assets/sprites/Tavern_Assets/Grass_Background.png" id="2_615jo"]
 [ext_resource type="Texture2D" uid="uid://bjo8xqfo8fod2" path="res://assets/sprites/Tavern_Assets/Temp_Tavern_Tileset.png" id="3_2qjc3"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bnqcn1bclm3ey" path="res://assets/sprites/Tavern_Assets/Grass_Type2.png" id="6_txs02"]
 [ext_resource type="Texture2D" uid="uid://brjaao6e7o6i3" path="res://assets/sprites/Tavern_Assets/Grass_Type3.png" id="7_k2p6b"]
 [ext_resource type="Texture2D" uid="uid://cguaaa3c7yysr" path="res://assets/sprites/Tavern_Assets/Brick_Room.png" id="9_dw7ad"]
-[ext_resource type="PackedScene" uid="uid://bb5xols146cd7" path="res://scenes/Portal.tscn" id="9_v44w4"]
+[ext_resource type="PackedScene" uid="uid://e8q0yhmjxcl8" path="res://scenes/Portal.tscn" id="9_v44w4"]
 [ext_resource type="PackedScene" uid="uid://biufa3lrtxrwe" path="res://scenes/Player.tscn" id="10_c12e7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4qj5b"]

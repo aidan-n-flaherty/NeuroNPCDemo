@@ -1,27 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhghvd5d5on0v"]
+[gd_scene load_steps=5 format=3 uid="uid://bhghvd5d5on0v"]
 
 [ext_resource type="Script" path="res://scripts/npc_3d.gd" id="1_kk2ns"]
 [ext_resource type="Script" path="res://scripts/npc_brain.gd" id="2_ampte"]
+[ext_resource type="PackedScene" uid="uid://c5sc6d4lotpjw" path="res://scenes/3D/Character3D.tscn" id="3_rmv3m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b4jr7"]
-size = Vector3(0.5, 1, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hx8ru"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_7pld6"]
-material = SubResource("StandardMaterial3D_hx8ru")
-size = Vector3(0.5, 1, 0.5)
+size = Vector3(0.5, 1.5, 0.5)
 
 [node name="NPC3D" type="CharacterBody3D"]
 script = ExtResource("1_kk2ns")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.816983, 0)
 shape = SubResource("BoxShape3D_b4jr7")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-mesh = SubResource("BoxMesh_7pld6")
-skeleton = NodePath("../..")
 
 [node name="Brain" type="Node3D" parent="."]
 script = ExtResource("2_ampte")
+
+[node name="Character3D" parent="." instance=ExtResource("3_rmv3m")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
