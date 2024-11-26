@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx8w2guxyju0v"]
+
+[ext_resource type="Script" path="res://scripts/beer_small.gd" id="1_c08kj"]
+[ext_resource type="Texture2D" uid="uid://dwu5hwx2yq1nr" path="res://assets/sprites/Tavern_Assets/BeerSmall.png" id="1_ma7pt"]
+[ext_resource type="Resource" uid="uid://b666bn0a8h68i" path="res://inventory/items/beerSmall.tres" id="2_8swtd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b3nbr"]
+radius = 104.077
+
+[node name="BeerSmall" type="Area2D"]
+script = ExtResource("1_c08kj")
+item = ExtResource("2_8swtd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ma7pt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 20)
+shape = SubResource("CircleShape2D_b3nbr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

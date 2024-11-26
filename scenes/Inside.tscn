@@ -1,10 +1,11 @@
-[gd_scene load_steps=32 format=4 uid="uid://14sqlws4ymal"]
+[gd_scene load_steps=33 format=4 uid="uid://14sqlws4ymal"]
 
 [ext_resource type="Texture2D" uid="uid://bjo8xqfo8fod2" path="res://assets/sprites/Tavern_Assets/Temp_Tavern_Tileset.png" id="3_n3lod"]
 [ext_resource type="Texture2D" uid="uid://ca5md2iqg3on1" path="res://assets/sprites/Tavern_Assets/Tabel.png" id="4_cvvp1"]
 [ext_resource type="Texture2D" uid="uid://c3gloegljsl1a" path="res://assets/sprites/Tavern_Assets/Tavern_Keeper.png" id="5_ixxew"]
 [ext_resource type="Texture2D" uid="uid://cguaaa3c7yysr" path="res://assets/sprites/Tavern_Assets/Brick_Room.png" id="8_41k5b"]
 [ext_resource type="PackedScene" uid="uid://e8q0yhmjxcl8" path="res://scenes/Portal.tscn" id="9_6eaq1"]
+[ext_resource type="PackedScene" uid="uid://dx8w2guxyju0v" path="res://scenes/BeerSmall.tscn" id="9_kkfhd"]
 [ext_resource type="PackedScene" uid="uid://db7k08upy8fc" path="res://scenes/bartender.tscn" id="10_ubmai"]
 [ext_resource type="Texture2D" uid="uid://khk17t86jvhj" path="res://assets/sprites/Tavern_Assets/cupboard.png" id="11_aw87o"]
 [ext_resource type="PackedScene" uid="uid://biufa3lrtxrwe" path="res://scenes/Player.tscn" id="12_n4g0g"]
@@ -138,6 +139,21 @@ position = Vector2(112, 224)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
+[node name="Collectables" type="Node" parent="."]
+
+[node name="BeerSmall" parent="Collectables" instance=ExtResource("9_kkfhd")]
+z_index = 5
+position = Vector2(-248, -240)
+
+[node name="BeerSmall2" parent="Collectables" instance=ExtResource("9_kkfhd")]
+position = Vector2(-248, -560)
+
+[node name="BeerSmall3" parent="Collectables" instance=ExtResource("9_kkfhd")]
+position = Vector2(-824, -560)
+
+[node name="BeerSmall4" parent="Collectables" instance=ExtResource("9_kkfhd")]
+position = Vector2(-824, -240)
+
 [node name="Collidables" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Collidables"]
@@ -218,7 +234,7 @@ position = Vector2(-822, -216)
 shape = SubResource("RectangleShape2D_ylcc6")
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="Collidables"]
-position = Vector2(-245, -216)
+position = Vector2(-248, -216)
 shape = SubResource("RectangleShape2D_ylcc6")
 
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="Collidables"]
