@@ -4,6 +4,8 @@ extends Area2D
 var player = null
 var can_collect = false  
 
+@onready var CanCollectLabel = $"CanCollectLabel"
+
 func _on_body_entered(body: CharacterBody2D) -> void:
 	if body.name == "Player":  
 		player = body
@@ -15,6 +17,10 @@ func _on_body_exited(body: CharacterBody2D) -> void:
 		player = null
 
 func _process(delta: float) -> void:
+	if can_collect:
+		CanCollectLabel.text = "Press Space to Collect"
+	else:
+		CanCollectLabel.text = ""
 	if can_collect and Input.is_action_just_pressed("collect_item"):  
 		collect_item()
 
