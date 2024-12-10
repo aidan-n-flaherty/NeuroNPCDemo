@@ -1,10 +1,50 @@
-[gd_scene load_steps=7 format=3 uid="uid://biufa3lrtxrwe"]
+[gd_scene load_steps=11 format=3 uid="uid://biufa3lrtxrwe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_w68ng"]
 [ext_resource type="Resource" uid="uid://bq8lwgaoqdmol" path="res://inventory/playerInventory.tres" id="2_6x0mw"]
-[ext_resource type="Texture2D" uid="uid://mue1gma43iw5" path="res://assets/sprites/Tavern_Assets/Knight.png" id="2_mgkbm"]
-[ext_resource type="Script" path="res://scripts/player_brain.gd" id="3_vnnou"]
+[ext_resource type="Texture2D" uid="uid://do8jrcex5vq2y" path="res://assets/sprites/Animated_Character_Sprites/Main_Character/player_type2-Sheet_idle_animation.png" id="3_0kyb7"]
 [ext_resource type="PackedScene" uid="uid://no63l5m1e1jv" path="res://inventory/scenes/inventory_ui.tscn" id="4_gkhck"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acmui"]
+atlas = ExtResource("3_0kyb7")
+region = Rect2(0, 0, 62, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87olt"]
+atlas = ExtResource("3_0kyb7")
+region = Rect2(62, 0, 62, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keen6"]
+atlas = ExtResource("3_0kyb7")
+region = Rect2(124, 0, 62, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqvmc"]
+atlas = ExtResource("3_0kyb7")
+region = Rect2(186, 0, 62, 76)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pt5ck"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acmui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87olt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keen6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqvmc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1smbj"]
 size = Vector2(80, 128)
@@ -13,17 +53,17 @@ size = Vector2(80, 128)
 script = ExtResource("1_w68ng")
 inv = ExtResource("2_6x0mw")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_mgkbm")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pt5ck")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.118678
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1smbj")
 
-[node name="Brain" type="Node2D" parent="."]
-script = ExtResource("3_vnnou")
-
 [node name="Inventory_UI" parent="." instance=ExtResource("4_gkhck")]
-offset_left = -152.0
-offset_top = -304.0
-offset_right = 152.0
+offset_left = -232.0
+offset_top = -424.0
+offset_right = 240.0
 offset_bottom = -72.0

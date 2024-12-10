@@ -1,18 +1,21 @@
 extends AgentBrain
 
-var target: Vector3
+var currentAction: Action
 
-func init(id: int, artificial=true):
-	super.init(id, artificial)
+func init(id: int, artificial=true, agentName=["", ""]):
+	super.init(id, artificial, agentName)
+	
+	AgentManager.sendCommand.connect(processCommand)
 
 func processCommand(agentID: int, action: Action):
+	print(agentID, ", ", self.id, ", ", action)
 	if agentID != self.id:
 		return
 	
 	if action.actionType == 'say':
 		get_parent().displaySpeechBubble(action.parameters[0])
-	if action.actionType == 'attack':
-		attacking = AgentManager.getAgent(action.parameters[0])
+	else:
+		currentAction = action
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

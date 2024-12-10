@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://kagd8t8jeyxd"]
+
+[ext_resource type="Script" path="res://scripts/item_3d.gd" id="1_5132l"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_tnst7"]
+
+[node name="Item3D" type="RigidBody3D"]
+script = ExtResource("1_5132l")
+itemName = "mug of beer"
+
+[node name="Item" type="Node3D" parent="."]
+script = ExtResource("1_tnst7")

@@ -44,4 +44,5 @@ func _process(_delta):
 	elif state == WebSocketPeer.STATE_CLOSED:
 		var code = socket.get_close_code()
 		print("WebSocket closed with code: %d. Clean: %s" % [code, code != -1])
-		set_process(false)
+		
+		self._ready()

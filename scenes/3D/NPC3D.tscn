@@ -4,20 +4,21 @@
 [ext_resource type="Script" path="res://scripts/npc_brain.gd" id="2_ampte"]
 [ext_resource type="PackedScene" uid="uid://c5sc6d4lotpjw" path="res://scenes/3D/Character3D.tscn" id="3_rmv3m"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_b4jr7"]
-size = Vector3(0.5, 1.5, 0.5)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ky37"]
+radius = 0.2
+height = 0.8
 
 [node name="NPC3D" type="CharacterBody3D"]
 script = ExtResource("1_kk2ns")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.816983, 0)
-shape = SubResource("BoxShape3D_b4jr7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("CapsuleShape3D_0ky37")
 
 [node name="Brain" type="Node3D" parent="."]
 script = ExtResource("2_ampte")
 
 [node name="Character3D" parent="." instance=ExtResource("3_rmv3m")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(7.54979e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, 7.54979e-09, 0, 0, 0)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

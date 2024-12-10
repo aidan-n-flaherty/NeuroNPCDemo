@@ -10,6 +10,12 @@ var websocket_manager: WebsocketManager
 
 var agents = {}
 
+var items = {}
+
+var counter = 0
+
+var itemCounter = 100
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.websocket_manager = WebsocketManager.new()
@@ -21,9 +27,15 @@ func _ready() -> void:
 
 func registerAgent(agentID: int, node: Node):
 	self.agents[agentID] = node
+	
+func registerItem(itemID: int, node: Node):
+	self.items[itemID] = node
 
 func getAgent(agentID: int) -> Node:
 	return self.agents[agentID]
+
+func getItem(itemID: int) -> Node:
+	return self.items[itemID]
 
 func emitAction(agentID: int, action: Action):
 	http_manager.postReq('/emitAction', {

@@ -1,5 +1,116 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5sc6d4lotpjw"]
+[gd_scene load_steps=14 format=3 uid="uid://c5sc6d4lotpjw"]
 
 [ext_resource type="PackedScene" uid="uid://imjedklytt7q" path="res://assets/models/Character3D.glb" id="1_k20nw"]
+[ext_resource type="Script" path="res://scripts/character_animator.gd" id="2_xglb4"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7407p"]
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1foe4"]
+in_3d_space = true
+seamless = true
+as_normal_map = true
+bump_strength = 16.0
+noise = SubResource("FastNoiseLite_7407p")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nk4xh"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+roughness = 0.0
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_1foe4")
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hskc6"]
+animation = &"Walk"
+use_custom_timeline = true
+timeline_length = 2.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mxg6u"]
+animation = &"Idle"
+use_custom_timeline = true
+timeline_length = 2.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g52bb"]
+animation = &"Punch"
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_jv25i"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_hskc6")
+blend_point_0/pos = Vector2(-0.4, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_mxg6u")
+blend_point_1/pos = Vector2(0, 0.7)
+blend_point_2/node = SubResource("AnimationNodeAnimation_g52bb")
+blend_point_2/pos = Vector2(0, -0.5)
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_h47md"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cga2m"]
+animation = &"Idle"
+use_custom_timeline = true
+timeline_length = 2.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_46e7m"]
+animation = &"Walk"
+use_custom_timeline = true
+timeline_length = 2.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_lvo01"]
+nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_jv25i")
+nodes/BlendSpace2D/position = Vector2(436.38, 123.22)
+nodes/WalkIdle/node = SubResource("AnimationNodeBlend2_h47md")
+nodes/WalkIdle/position = Vector2(100, 40)
+nodes/idle/node = SubResource("AnimationNodeAnimation_cga2m")
+nodes/idle/position = Vector2(-70, 210)
+nodes/walk/node = SubResource("AnimationNodeAnimation_46e7m")
+nodes/walk/position = Vector2(-80, 60)
+node_connections = [&"WalkIdle", 0, &"walk", &"WalkIdle", 1, &"idle", &"output", 0, &"WalkIdle"]
 
 [node name="Character3D" instance=ExtResource("1_k20nw")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(-9.31323e-10, 0.485227, -4.65661e-10)
+bones/1/rotation = Quaternion(0.0125661, -5.03011e-08, 0.0600673, 0.998115)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(0.661078, 5.84075e-08, 0.0353391, 0.749485)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.561043, 0.031894, 0.0119422, 0.827086)
+bones/4/rotation = Quaternion(0.0311348, 0.00465622, 0.00885972, 0.999465)
+bones/5/rotation = Quaternion(-0.59227, -0.301397, 0.298277, 0.685132)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(-0.543581, 0.44633, 0.13419, 0.698071)
+bones/7/rotation = Quaternion(-0.0321834, -0.00756881, -0.00347926, 0.999447)
+bones/8/position = Vector3(1.75432e-09, 0.485227, -4.97155e-10)
+bones/9/rotation = Quaternion(-0.0113099, -0.00365553, 0.659225, 0.751852)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(-0.135189, -0.0967841, -0.695215, 0.699309)
+bones/11/rotation = Quaternion(-0.276925, -0.263496, -0.600655, 0.702208)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(0.380409, 0.11109, 0.598487, 0.696248)
+bones/12/scale = Vector3(1, 1, 1)
+
+[node name="Cube" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_nk4xh")
+
+[node name="CharacterAnimator" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_lvo01")
+anim_player = NodePath("../AnimationPlayer")
+parameters/BlendSpace2D/blend_position = Vector2(0, 0)
+parameters/WalkIdle/blend_amount = 1.0
+script = ExtResource("2_xglb4")

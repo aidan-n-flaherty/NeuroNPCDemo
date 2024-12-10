@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 	
 	
 	if get_viewport().get_camera_3d():
-		var pos_3d = get_parent().global_position + Vector3(0, 2, 0)
+		var pos_3d = get_parent().global_position + Vector3(0, 1.25, 0)
 		var cam = get_viewport().get_camera_3d()
 		var pos_2d = cam.unproject_position(pos_3d)
 		
